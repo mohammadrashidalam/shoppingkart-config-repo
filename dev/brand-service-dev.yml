@@ -7,7 +7,7 @@ spring:
   data:
     mongodb:
       database: branddb
-      host: localhost
+      host: mongodb://localhost:27017/
       port: 27017
       auto-index-creation: true
   servlet:

@@ -1,25 +1,15 @@
 server:
-  port: 8182
-
+  port: 8181
 spring:
   application:
-    name: BRAND-SERVICE
+    name: CATEGORY-SERVICE
   data:
     mongodb:
-      database: branddb
+      database: category
       host: localhost
       port: 27017
       auto-index-creation: true
-  servlet:
-    multipart:
-      max-file-size: 2MB
-      max-request-size: 150MB
-      enabled: true
-      location: ${java.io.tmpdir}
-      file-size-threshold: 0
 
-brand-service:
-  filepath: "E:/shoppingkart/brand_service/files/"
 
 eureka:
   client:
@@ -37,7 +27,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, metrics, info, threaddump, heapdump, prometheus
+        include: health, metrics, info, threaddump, heapdump,prometheus
   metrics:
     tags:
       application: ${spring.application.name}

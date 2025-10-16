@@ -1,0 +1,50 @@
+server:
+  port: 8182
+
+spring:
+  application:
+    name: BRAND-SERVICE
+  data:
+    mongodb:
+      database: branddb
+      host: localhost
+      port: 27017
+      auto-index-creation: true
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 150MB
+      enabled: true
+      location: ${java.io.tmpdir}
+      file-size-threshold: 0
+
+brand-service:
+  filepath: "E:/shoppingkart/brand_service/files/"
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, info, threaddump, heapdump, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+info:
+  app:
+    name: Brand Service
+    description: Service for managing brand data
+    version: 1.0.0
+  company: Accutor Technologies
